@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "294235034392",
+    "project_id": "cradventure-b2213",
+    "storage_bucket": "cradventure-b2213.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294235034392:android:c8008e3e45758033e2c46d",
+        "android_client_info": {
+          "package_name": "CR.Adventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294235034392-d8unb2lvdu1je3qr65g924kv8kl70sf2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "CR.Adventure",
+            "certificate_hash": "c181067f6e60f3b6bfa917670ab534e0ea210b3f"
+          }
+        },
+        {
+          "client_id": "294235034392-5nshi4qrkahoto14nptvac274ca5qkpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkJeeaPkmpACASdx0wdfPiF_11SG5v26Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294235034392-0ahj9ae4vtoivq8rkgpqt1rek82ejja8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
