@@ -2,8 +2,9 @@
 using Plugin.Firebase.Auth;
 using Plugin.Firebase.Firestore;
 namespace CRadventure;
-using CRadventure.Services;
 using CRadventure.Models;
+using CRadventure.Services;
+using Firebase.Firestore.Auth;
 
 public partial class MainPage : ContentPage
 {
@@ -16,31 +17,9 @@ public partial class MainPage : ContentPage
 
 
 
-    private async void Registrar_Clicked(
-        object sender,
-        EventArgs e)
+    private async void Registrar_Clicked(object sender, EventArgs e)
     {
-        try
-        {
-            var auth = CrossFirebaseAuth.Current;
-
-            var result =
-                await auth.CreateUserAsync(
-                    txtCorreo.Text,
-                    txtPassword.Text);
-
-            await DisplayAlert(
-                "Éxito",
-                $"Usuario creado: {result.Email}",
-                "OK");
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert(
-                "Error",
-                ex.Message,
-                "OK");
-        }
+        await Navigation.PushAsync(new RegisterPage());
     }
 
     private async void Login_Clicked(object sender, EventArgs e)
@@ -49,9 +28,7 @@ public partial class MainPage : ContentPage
         {
             var auth = CrossFirebaseAuth.Current;
 
-            var user = await auth.SignInWithEmailAndPasswordAsync(
-                txtCorreo.Text,
-                txtPassword.Text);
+            var user = await auth.SignInWithEmailAndPasswordAsync(txtCorreo.Text, txtPassword.Text);
 
             // Obtener el rol del usuario desde Firestore
             var service = new UsuarioService();
