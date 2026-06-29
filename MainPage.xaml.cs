@@ -1,7 +1,9 @@
-﻿using Javax.Security.Auth;
-using Plugin.Firebase;
+﻿using Plugin.Firebase;
 using Plugin.Firebase.Auth;
+using Plugin.Firebase.Firestore;
 namespace CRadventure;
+using CRadventure.Services;
+using CRadventure.Models;
 
 public partial class MainPage : ContentPage
 {
@@ -10,40 +12,70 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    //Funcion del boton de registrarse (Envia a la pestana register)
-    private async void Registrar_Clicked(object sender, EventArgs e)
-    {
-       // await Navigation.PushAsync(new RegisterPage());
-    }
 
-    //Metodo de validaciones 
-    private bool ValidarCampos()
+
+
+
+    private async void Registrar_Clicked(
+        object sender,
+        EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+        try
         {
-            DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
-            return false;
+            var auth = CrossFirebaseAuth.Current;
+
+            var result =
+                await auth.CreateUserAsync(
+                    txtCorreo.Text,
+                    txtPassword.Text);
+
+            await DisplayAlert(
+                "Éxito",
+                $"Usuario creado: {result.Email}",
+                "OK");
         }
-        return true;
+        catch (Exception ex)
+        {
+            await DisplayAlert(
+                "Error",
+                ex.Message,
+                "OK");
+        }
     }
 
     private async void Login_Clicked(object sender, EventArgs e)
     {
-        //Se llama al metodo validacion
-        if (!ValidarCampos()) return;
-
         try
         {
             var auth = CrossFirebaseAuth.Current;
+
             var user = await auth.SignInWithEmailAndPasswordAsync(
-                txtCorreo.Text.Trim(),
+                txtCorreo.Text,
                 txtPassword.Text);
 
-            await Navigation.PushAsync(new DashboardPage(user.Email));
+            // Obtener el rol del usuario desde Firestore
+            var service = new UsuarioService();
+            var usuario = await service.ObtenerUsuarioPorEmailAsync(user.Email);
+
+            if (usuario == null)
+            {
+                await DisplayAlert("Error", "Usuario no encontrado en la base de datos", "OK");
+                return;
+            }
+
+            // Navegar según el rol
+            if (usuario.Rol == "admin")
+                await Navigation.PushAsync(new DashboardPage(user.Email));
+            else if (usuario.Rol == "guia")
+                await Navigation.PushAsync(new DashboardPage(user.Email));
+            else if (usuario.Rol == "cliente")
+                await Navigation.PushAsync(new DashboardPage(user.Email));
+            else
+                await DisplayAlert("Error", "Rol no reconocido", "OK");
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", "Correo o contraseña incorrectos", "OK");
+            await DisplayAlert("Error Login", ex.Message, "OK");
         }
     }
 }
