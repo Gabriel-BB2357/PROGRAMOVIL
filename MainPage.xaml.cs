@@ -1,4 +1,5 @@
-﻿using Plugin.Firebase;
+﻿using Javax.Security.Auth;
+using Plugin.Firebase;
 using Plugin.Firebase.Auth;
 namespace CRadventure;
 
@@ -9,59 +10,40 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-
-
-
-
-    private async void Registrar_Clicked(
-        object sender,
-        EventArgs e)
+    //Funcion del boton de registrarse (Envia a la pestana register)
+    private async void Registrar_Clicked(object sender, EventArgs e)
     {
-        try
-        {
-            var auth = CrossFirebaseAuth.Current;
-
-            var result =
-                await auth.CreateUserAsync(
-                    txtCorreo.Text,
-                    txtPassword.Text);
-
-            await DisplayAlert(
-                "Éxito",
-                $"Usuario creado: {result.Email}",
-                "OK");
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert(
-                "Error",
-                ex.Message,
-                "OK");
-        }
+       // await Navigation.PushAsync(new RegisterPage());
     }
 
-    private async void Login_Clicked(
-        object sender,
-        EventArgs e)
+    //Metodo de validaciones 
+    private bool ValidarCampos()
     {
+        if (string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+        {
+            DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
+            return false;
+        }
+        return true;
+    }
+
+    private async void Login_Clicked(object sender, EventArgs e)
+    {
+        //Se llama al metodo validacion
+        if (!ValidarCampos()) return;
+
         try
         {
             var auth = CrossFirebaseAuth.Current;
+            var user = await auth.SignInWithEmailAndPasswordAsync(
+                txtCorreo.Text.Trim(),
+                txtPassword.Text);
 
-            var user =
-                await auth.SignInWithEmailAndPasswordAsync(
-                    txtCorreo.Text,
-                    txtPassword.Text);
-
-            await Navigation.PushAsync(
-                new DashboardPage(user.Email));
+            await Navigation.PushAsync(new DashboardPage(user.Email));
         }
         catch (Exception ex)
         {
-            await DisplayAlert(
-                "Error Login",
-                ex.Message,
-                "OK");
+            await DisplayAlert("Error", "Correo o contraseña incorrectos", "OK");
         }
     }
 }
