@@ -33,6 +33,9 @@ namespace CRadventure.Models
         [FirestoreProperty("es_extranjero")]
         public bool EsExtranjero { get; set; }
 
+        [FirestoreProperty("fecha_registro")]
+        public DateTime FechaRegistro { get; set; }
+
         // Campos exclusivos del guia
         [FirestoreProperty("biografia")]
         public string Biografia { get; set; } = string.Empty;

@@ -13,17 +13,30 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-
-
-
-
+    //Navega a la pagina de registro
     private async void Registrar_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new RegisterPage());
     }
 
+    //Metodo para validar que no hay campos vacios
+    private bool ValidarCampos()
+    {
+        if (string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+        {
+            DisplayAlert("Error", "Por favor completa todos los campos", "OK");
+            return false;
+        }
+
+        return true;
+    }
+
+    //Metodo del boton de login
     private async void Login_Clicked(object sender, EventArgs e)
     {
+        if (!ValidarCampos())
+            return;
+
         try
         {
             var auth = CrossFirebaseAuth.Current;
@@ -52,7 +65,7 @@ public partial class MainPage : ContentPage
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error Login", ex.Message, "OK");
+            await DisplayAlert("Error Login", "Correo o contraseña incorrectos", "OK");
         }
     }
 }

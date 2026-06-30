@@ -1,1 +1,21 @@
-.vs/ 
+# Visual Studio cache
+.vs/
+
+# Carpetas de salida de compilación (¡Las que te suman cientos de archivos!)
+bin/
+obj/
+
+# Archivos de configuración de usuario locales
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Ejecutables y empaquetados de Android
+*.apk
+*.aab
+*.idsig
+
+# Archivos de caché del sistema u otros entornos
+.DS_Store
+Thumbs.db
