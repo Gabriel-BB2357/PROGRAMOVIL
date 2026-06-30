@@ -45,7 +45,7 @@ public partial class MainPage : ContentPage
 
             // Obtener el rol del usuario desde Firestore
             var service = new UsuarioService();
-            var usuario = await service.ObtenerUsuarioPorEmailAsync(user.Email);
+            var usuario = await service.ObtenerUsuarioPorUidAsync(user.Uid);
 
             if (usuario == null)
             {

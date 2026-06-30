@@ -20,7 +20,7 @@ namespace CRadventure.Services
                 .SetDataAsync(usuario);
         }
 
-        public async Task<UsuarioModel?> ObtenerUsuarioPorEmailAsync(string email)
+        /*public async Task<UsuarioModel?> ObtenerUsuarioPorEmailAsync(string email)
         {
                  var documentos = await CrossFirebaseFirestore.Current
                 .GetCollection(ColeccionUsuarios)
@@ -28,6 +28,16 @@ namespace CRadventure.Services
                 .GetDocumentsAsync<UsuarioModel>();
 
             return documentos.Documents.Select(d => d.Data).FirstOrDefault();
+        }*/
+
+        public async Task<UsuarioModel?> ObtenerUsuarioPorUidAsync(string uid)
+        {
+            var documento = await CrossFirebaseFirestore.Current
+                .GetCollection(ColeccionUsuarios)
+                .GetDocument(uid)
+                .GetDocumentSnapshotAsync<UsuarioModel>();
+
+            return documento?.Data;
         }
     }
 }
