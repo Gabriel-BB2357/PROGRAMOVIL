@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CRadventure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+051f78d3be9cef85c3e3f4aedf440ce2451ff5a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+ae93e0c008b59d8a0cc304ba393ebe1cce5576a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CRadventure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CRadventure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
