@@ -19,28 +19,32 @@ public partial class MainPage : ContentPage
         await Navigation.PushAsync(new RegisterPage());
     }
 
-    //Metodo para validar que no hay campos vacios
-    private bool ValidarCampos()
+    // Toggle para mostrar/ocultar contraseña
+    private void OnTogglePassword_Clicked(object sender, EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
-        {
-            DisplayAlert("Error", "Por favor completa todos los campos", "OK");
-            return false;
-        }
-
-        return true;
+        txtPassword.IsPassword = !txtPassword.IsPassword;
     }
 
-    //Metodo del boton de login
-    private async void Login_Clicked(object sender, EventArgs e)
+
+    // Método principal de inicio de sesión con UI de carga
+    private async void OnIniciarViaje_Clicked(object sender, EventArgs e)
     {
-        if (!ValidarCampos())
+        // 1. Validar campos antes de proceder
+        if (string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+        {
+            await DisplayAlert("Error", "Por favor completa todos los campos", "OK");
             return;
+        }
+
+        // 2. Activar indicador de carga
+        btnIniciar.Text = "";
+        loadingIndicator.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+        btnIniciar.IsEnabled = false;
 
         try
         {
             var auth = CrossFirebaseAuth.Current;
-
             var user = await auth.SignInWithEmailAndPasswordAsync(txtCorreo.Text, txtPassword.Text);
 
             // Obtener el rol del usuario desde Firestore
@@ -50,22 +54,27 @@ public partial class MainPage : ContentPage
             if (usuario == null)
             {
                 await DisplayAlert("Error", "Usuario no encontrado en la base de datos", "OK");
-                return;
             }
-
-            // Navegar según el rol
-            if (usuario.Rol == "admin")
-                await Navigation.PushAsync(new DashboardPage(user.Email));
-            else if (usuario.Rol == "guia")
-                await Navigation.PushAsync(new DashboardPage(user.Email));
-            else if (usuario.Rol == "cliente")
-                await Navigation.PushAsync(new DashboardPage(user.Email));
             else
-                await DisplayAlert("Error", "Rol no reconocido", "OK");
+            {
+                // Navegar según el rol
+                if (usuario.Rol == "admin" || usuario.Rol == "guia" || usuario.Rol == "cliente")
+                    await Navigation.PushAsync(new DashboardPage(user.Email));
+                else
+                    await DisplayAlert("Error", "Rol no reconocido", "OK");
+            }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             await DisplayAlert("Error Login", "Correo o contraseña incorrectos", "OK");
+        }
+        finally
+        {
+            // 3. Restaurar botón al finalizar (éxito o error)
+            loadingIndicator.IsVisible = false;
+            loadingIndicator.IsRunning = false;
+            btnIniciar.Text = "Iniciar viaje";
+            btnIniciar.IsEnabled = true;
         }
     }
 }

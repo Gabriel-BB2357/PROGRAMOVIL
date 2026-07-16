@@ -11,8 +11,12 @@ public partial class RegisterPage : ContentPage
 		InitializeComponent();
 	}
 
+    // --- Métodos de visibilidad de contraseña ---
+    private void OnTogglePassword_Clicked(object sender, EventArgs e) => txtPassword.IsPassword = !txtPassword.IsPassword;
+    private void OnToggleConfirmPassword_Clicked(object sender, EventArgs e) => txtConfirmPassword.IsPassword = !txtConfirmPassword.IsPassword;
+
     //Boton regresar
-    private async void Volver_Clicked(object sender, EventArgs e)
+    private async void OnVolver_Clicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();
     }
@@ -46,15 +50,21 @@ public partial class RegisterPage : ContentPage
         return true;
     }
 
-    private async void Registrar_Clicked(object sender, EventArgs e)
+    // --- Botón de Registro con UI de carga ---
+    private async void OnRegistrar_Clicked(object sender, EventArgs e)
     {
         if (!ValidarCampos())
             return;
 
+        // Activar indicador de carga
+        btnRegistrar.Text = "";
+        loadingIndicator.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+        btnRegistrar.IsEnabled = false;
+
         try
         {
             var auth = CrossFirebaseAuth.Current;
-
             var authResult = await auth.CreateUserAsync(txtCorreo.Text, txtPassword.Text);
 
             var nuevoUsuario = new UsuarioModel
@@ -79,6 +89,14 @@ public partial class RegisterPage : ContentPage
         catch (Exception ex)
         {
             await DisplayAlert("Error", "No se pudo crear la cuenta: " + ex.Message, "OK");
+        }
+        finally
+        {
+            // Restaurar botón (se ejecuta ocurra error o éxito)
+            loadingIndicator.IsVisible = false;
+            loadingIndicator.IsRunning = false;
+            btnRegistrar.Text = "Registrar e Iniciar";
+            btnRegistrar.IsEnabled = true;
         }
     }
 }

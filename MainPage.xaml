@@ -106,6 +106,7 @@
                                 VerticalTextAlignment="Center"/>
                         </Border>
 
+                        <!-- Contraseña modificada para incluir el botón de visibilidad -->
                         <Border
                             Padding="12,0"
                             HeightRequest="42"
@@ -115,26 +116,50 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8"/>
                             </Border.StrokeShape>
-                            <Entry
-                                x:Name="txtPassword"
-                                Placeholder="Contraseña"
-                                IsPassword="True"
-                                PlaceholderColor="#78909C"
-                                TextColor="White"
-                                FontSize="13"
-                                FontFamily="MontserratRegular"
-                                VerticalTextAlignment="Center"/>
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Entry
+                                    x:Name="txtPassword"
+                                    Grid.Column="0"
+                                    Placeholder="Contraseña"
+                                    IsPassword="True"
+                                    PlaceholderColor="#78909C"
+                                    TextColor="White"
+                                    FontSize="13"
+                                    FontFamily="MontserratRegular"
+                                    VerticalTextAlignment="Center"/>
+                                <Button
+                                    Grid.Column="1"
+                                    Text="👁️"
+                                    FontSize="16"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#93C94A"
+                                    WidthRequest="40"
+                                    Padding="0"
+                                    Clicked="OnTogglePassword_Clicked"/>
+                            </Grid>
                         </Border>
 
-                        <Button
-                            Text="Iniciar viaje"
-                            FontFamily="MontserratBold"
-                            FontSize="14"
-                            BackgroundColor="#93C94A"
-                            TextColor="#0A140E"
-                            HeightRequest="42"
-                            CornerRadius="8"
-                            Margin="0,4,0,0"/>
+                        <!-- Botón modificado para incluir el ActivityIndicator -->
+                        <Grid>
+                            <Button
+                                x:Name="btnIniciar"
+                                Text="Iniciar viaje"
+                                FontFamily="MontserratBold"
+                                FontSize="14"
+                                BackgroundColor="#93C94A"
+                                TextColor="#0A140E"
+                                HeightRequest="42"
+                                CornerRadius="8"
+                                Margin="0,4,0,0"
+                                Clicked="OnIniciarViaje_Clicked"/>
+                            <ActivityIndicator 
+                                x:Name="loadingIndicator" 
+                                IsRunning="False" 
+                                IsVisible="False" 
+                                Color="#0A140E" 
+                                VerticalOptions="Center" 
+                                HorizontalOptions="Center"/>
+                        </Grid>
 
                         <Button
                             Text="Crear cuenta"

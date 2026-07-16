@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CRadventure.RegisterPage"
-             NavigationPage.HasNavigationBar="False"
-             Shell.NavBarIsVisible="False"
-             Title="RegisterPage">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CRadventure.RegisterPage"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
+    Title="RegisterPage">
 
     <Grid>
         <Image
@@ -13,19 +14,31 @@
             HorizontalOptions="Fill"
             VerticalOptions="Fill"/>
 
-        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill">
+        <BoxView 
+            HorizontalOptions="Fill" 
+            VerticalOptions="Fill">
             <BoxView.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#30050A06" Offset="0.0" />
-                    <GradientStop Color="#CC09130B" Offset="0.5" />
-                    <GradientStop Color="#FA050A06" Offset="1.0" />
+                <LinearGradientBrush 
+                    StartPoint="0,0" 
+                    EndPoint="0,1">
+                    <GradientStop 
+                        Color="#30050A06" 
+                        Offset="0.0" />
+                    <GradientStop 
+                        Color="#CC09130B" 
+                        Offset="0.5" />
+                    <GradientStop 
+                        Color="#FA050A06" 
+                        Offset="1.0" />
                 </LinearGradientBrush>
             </BoxView.Background>
         </BoxView>
 
-        <ScrollView VerticalOptions="FillAndExpand">
-
-            <Grid VerticalOptions="CenterAndExpand" Padding="24,30,24,30">
+        <ScrollView 
+            VerticalOptions="FillAndExpand">
+            <Grid 
+                VerticalOptions="CenterAndExpand" 
+                Padding="24,30,24,30">
 
                 <Border
                     Padding="18,20,18,20"
@@ -38,199 +51,240 @@
                         <RoundRectangle CornerRadius="20"/>
                     </Border.StrokeShape>
 
-                    <VerticalStackLayout Spacing="11">
+                    <VerticalStackLayout 
+                        Spacing="11">
 
-                        <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
-                            <Label
-                                Text="Crear Cuenta"
-                                FontFamily="MontserratBold"
+                        <VerticalStackLayout 
+                            Spacing="2" 
+                            HorizontalOptions="Center">
+                            <Label 
+                                Text="Crear Cuenta" 
+                                FontFamily="MontserratBold" 
                                 FontSize="24" 
-                                TextColor="#93C94A"
-                                HorizontalOptions="Center"
-                                CharacterSpacing="3"
+                                TextColor="#93C94A" 
+                                HorizontalOptions="Center" 
+                                CharacterSpacing="3" 
                                 HorizontalTextAlignment="Center">
                                 <Label.Shadow>
-                                    <Shadow Brush="Black" Offset="0,2" Radius="3" Opacity="0.5" />
+                                    <Shadow 
+                                        Brush="Black" 
+                                        Offset="0,2" 
+                                        Radius="3" 
+                                        Opacity="0.5" />
                                 </Label.Shadow>
                             </Label>
-
-                            <Label
-                                Text="Únete a la aventura"
-                                FontFamily="MontserratRegular"
-                                FontSize="12"
-                                TextColor="#B0BEC5"
-                                HorizontalOptions="Center"
-                                CharacterSpacing="0.8"
+                            <Label 
+                                Text="Únete a la aventura" 
+                                FontFamily="MontserratRegular" 
+                                FontSize="12" 
+                                TextColor="#B0BEC5" 
+                                HorizontalOptions="Center" 
+                                CharacterSpacing="0.8" 
                                 HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
 
-                        <BoxView
-                            HeightRequest="1"
-                            BackgroundColor="#10FFFFFF"
-                            HorizontalOptions="Fill"
+                        <BoxView 
+                            HeightRequest="1" 
+                            BackgroundColor="#10FFFFFF" 
+                            HorizontalOptions="Fill" 
                             Margin="5,2,5,2"/>
 
-                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
-                            <Border
-                                Padding="12,0"
-                                HeightRequest="40"
-                                BackgroundColor="#15FFFFFF"
-                                Stroke="#20FFFFFF"
+                        <Grid 
+                            ColumnDefinitions="*, *" 
+                            ColumnSpacing="10">
+                            <Border 
+                                Padding="12,0" 
+                                HeightRequest="40" 
+                                BackgroundColor="#15FFFFFF" 
+                                Stroke="#20FFFFFF" 
                                 StrokeThickness="1">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="8"/>
                                 </Border.StrokeShape>
-                                <Entry
-                                    x:Name="txtNombre"
-                                    Placeholder="Nombre"
-                                    PlaceholderColor="#78909C"
-                                    TextColor="White"
-                                    FontSize="13"
-                                    FontFamily="MontserratRegular"
+                                <Entry 
+                                    x:Name="txtNombre" 
+                                    Placeholder="Nombre" 
+                                    PlaceholderColor="#78909C" 
+                                    TextColor="White" 
+                                    FontSize="13" 
+                                    FontFamily="MontserratRegular" 
                                     VerticalTextAlignment="Center"/>
                             </Border>
-
-                            <Border
-                                Grid.Column="1"
-                                Padding="12,0"
-                                HeightRequest="40"
-                                BackgroundColor="#15FFFFFF"
-                                Stroke="#20FFFFFF"
+                            <Border 
+                                Grid.Column="1" 
+                                Padding="12,0" 
+                                HeightRequest="40" 
+                                BackgroundColor="#15FFFFFF" 
+                                Stroke="#20FFFFFF" 
                                 StrokeThickness="1">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="8"/>
                                 </Border.StrokeShape>
-                                <Entry
-                                    x:Name="txtApellidos"
-                                    Placeholder="Apellidos"
-                                    PlaceholderColor="#78909C"
-                                    TextColor="White"
-                                    FontSize="13"
-                                    FontFamily="MontserratRegular"
+                                <Entry 
+                                    x:Name="txtApellidos" 
+                                    Placeholder="Apellidos" 
+                                    PlaceholderColor="#78909C" 
+                                    TextColor="White" 
+                                    FontSize="13" 
+                                    FontFamily="MontserratRegular" 
                                     VerticalTextAlignment="Center"/>
                             </Border>
                         </Grid>
 
-                        <Border
-                            Padding="12,0"
-                            HeightRequest="40"
-                            BackgroundColor="#15FFFFFF"
-                            Stroke="#20FFFFFF"
+                        <Border 
+                            Padding="12,0" 
+                            HeightRequest="40" 
+                            BackgroundColor="#15FFFFFF" 
+                            Stroke="#20FFFFFF" 
                             StrokeThickness="1">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8"/>
                             </Border.StrokeShape>
-                            <Entry
-                                x:Name="txtCorreo"
-                                Placeholder="Correo electrónico"
-                                Keyboard="Email"
-                                PlaceholderColor="#78909C"
-                                TextColor="White"
-                                FontSize="13"
-                                FontFamily="MontserratRegular"
+                            <Entry 
+                                x:Name="txtCorreo" 
+                                Placeholder="Correo electrónico" 
+                                Keyboard="Email" 
+                                PlaceholderColor="#78909C" 
+                                TextColor="White" 
+                                FontSize="13" 
+                                FontFamily="MontserratRegular" 
                                 VerticalTextAlignment="Center"/>
                         </Border>
 
-                        <Border
-                            Padding="12,0"
-                            HeightRequest="40"
-                            BackgroundColor="#15FFFFFF"
-                            Stroke="#20FFFFFF"
+                        <Border 
+                            Padding="12,0" 
+                            HeightRequest="40" 
+                            BackgroundColor="#15FFFFFF" 
+                            Stroke="#20FFFFFF" 
                             StrokeThickness="1">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8"/>
                             </Border.StrokeShape>
-                            <Entry
-                                x:Name="txtTelefono"
-                                Placeholder="Teléfono"
-                                Keyboard="Telephone"
-                                PlaceholderColor="#78909C"
-                                TextColor="White"
-                                FontSize="13"
-                                FontFamily="MontserratRegular"
+                            <Entry 
+                                x:Name="txtTelefono" 
+                                Placeholder="Teléfono" 
+                                Keyboard="Telephone" 
+                                PlaceholderColor="#78909C" 
+                                TextColor="White" 
+                                FontSize="13" 
+                                FontFamily="MontserratRegular" 
                                 VerticalTextAlignment="Center"/>
                         </Border>
 
-                        <Border
-                            Padding="12,0"
-                            HeightRequest="40"
-                            BackgroundColor="#15FFFFFF"
-                            Stroke="#20FFFFFF"
+                        <Border 
+                            Padding="12,0" 
+                            HeightRequest="40" 
+                            BackgroundColor="#15FFFFFF" 
+                            Stroke="#20FFFFFF" 
                             StrokeThickness="1">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8"/>
                             </Border.StrokeShape>
-                            <Entry
-                                x:Name="txtPassword"
-                                Placeholder="Contraseña"
-                                IsPassword="True"
-                                PlaceholderColor="#78909C"
-                                TextColor="White"
-                                FontSize="13"
-                                FontFamily="MontserratRegular"
-                                VerticalTextAlignment="Center"/>
+                            <Grid 
+                                ColumnDefinitions="*, 40">
+                                <Entry 
+                                    x:Name="txtPassword" 
+                                    Grid.Column="0" 
+                                    Placeholder="Contraseña" 
+                                    IsPassword="True" 
+                                    PlaceholderColor="#78909C" 
+                                    TextColor="White" 
+                                    FontSize="13" 
+                                    FontFamily="MontserratRegular" 
+                                    VerticalTextAlignment="Center"/>
+                                <Button 
+                                    Grid.Column="1" 
+                                    Text="👁️" 
+                                    BackgroundColor="Transparent" 
+                                    TextColor="#93C94A" 
+                                    Clicked="OnTogglePassword_Clicked" 
+                                    Padding="0"/>
+                            </Grid>
                         </Border>
 
-                        <Border
-                            Padding="12,0"
-                            HeightRequest="40"
-                            BackgroundColor="#15FFFFFF"
-                            Stroke="#20FFFFFF"
+                        <Border 
+                            Padding="12,0" 
+                            HeightRequest="40" 
+                            BackgroundColor="#15FFFFFF" 
+                            Stroke="#20FFFFFF" 
                             StrokeThickness="1">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8"/>
                             </Border.StrokeShape>
-                            <Entry
-                                x:Name="txtConfirmPassword"
-                                Placeholder="Confirmar contraseña"
-                                IsPassword="True"
-                                PlaceholderColor="#78909C"
-                                TextColor="White"
-                                FontSize="13"
-                                FontFamily="MontserratRegular"
-                                VerticalTextAlignment="Center"/>
+                            <Grid 
+                                ColumnDefinitions="*, 40">
+                                <Entry 
+                                    x:Name="txtConfirmPassword" 
+                                    Grid.Column="0" 
+                                    Placeholder="Confirmar contraseña" 
+                                    IsPassword="True" 
+                                    PlaceholderColor="#78909C" 
+                                    TextColor="White" 
+                                    FontSize="13" 
+                                    FontFamily="MontserratRegular" 
+                                    VerticalTextAlignment="Center"/>
+                                <Button 
+                                    Grid.Column="1" 
+                                    Text="👁️" 
+                                    BackgroundColor="Transparent" 
+                                    TextColor="#93C94A" 
+                                    Clicked="OnToggleConfirmPassword_Clicked" 
+                                    Padding="0"/>
+                            </Grid>
                         </Border>
 
-                        <Grid ColumnDefinitions="*, Auto" Margin="5,0">
-                            <Label
-                                Text="¿Eres extranjero?"
-                                FontFamily="MontserratRegular"
-                                FontSize="13"
-                                TextColor="#ECEFF1"
+                        <Grid 
+                            ColumnDefinitions="*, Auto" 
+                            Margin="5,0">
+                            <Label 
+                                Text="¿Eres extranjero?" 
+                                FontFamily="MontserratRegular" 
+                                FontSize="13" 
+                                TextColor="#ECEFF1" 
                                 VerticalOptions="Center"/>
-                            <Switch
-                                Grid.Column="1"
-                                x:Name="switchExtranjero"
-                                OnColor="#93C94A"
-                                ThumbColor="White"
-                                Scale="0.85"
+                            <Switch 
+                                Grid.Column="1" 
+                                x:Name="switchExtranjero" 
+                                OnColor="#93C94A" 
+                                ThumbColor="White" 
+                                Scale="0.85" 
                                 VerticalOptions="Center"/>
                         </Grid>
 
-                        <Button
-                            Text="Registrar e Iniciar"
-                            FontFamily="MontserratBold"
-                            FontSize="14"
-                            BackgroundColor="#93C94A"
-                            TextColor="#0A140E"
-                            HeightRequest="42"
-                            CornerRadius="8"
-                            Margin="0,4,0,0"/>
+                        <Grid 
+                            HeightRequest="42">
+                            <Button 
+                                x:Name="btnRegistrar" 
+                                Text="Registrarse" 
+                                FontFamily="MontserratBold" 
+                                FontSize="14" 
+                                BackgroundColor="#93C94A" 
+                                TextColor="#0A140E" 
+                                CornerRadius="8" 
+                                Clicked="OnRegistrar_Clicked"/>
+                            <ActivityIndicator 
+                                x:Name="loadingIndicator" 
+                                IsRunning="False" 
+                                IsVisible="False" 
+                                Color="#0A140E" 
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center"/>
+                        </Grid>
 
-                        <Button
-                            Text="Volver"
-                            HeightRequest="40"
-                            CornerRadius="8"
-                            BackgroundColor="Transparent"
-                            BorderColor="#93C94A"
-                            BorderWidth="1"
-                            TextColor="#93C94A"
-                            FontFamily="MontserratBold"
-                            FontSize="12"/>
+                        <Button 
+                            Text="Volver" 
+                            HeightRequest="40" 
+                            CornerRadius="8" 
+                            BackgroundColor="Transparent" 
+                            BorderColor="#93C94A" 
+                            BorderWidth="1" 
+                            TextColor="#93C94A" 
+                            FontFamily="MontserratBold" 
+                            FontSize="12" 
+                            Clicked="OnVolver_Clicked"/>
 
                     </VerticalStackLayout>
                 </Border>
-
             </Grid>
         </ScrollView>
     </Grid>
