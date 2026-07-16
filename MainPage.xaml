@@ -10,11 +10,13 @@
 
         <!-- Imagen de fondo -->
         <Image
-            Source="mono.jpg"
-            Aspect="AspectFill" />
+            Source="a3.png"
+        Aspect="AspectFill"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"  />
 
-        <!-- Oscurecer fondo -->
-        <BoxView Color="#80000000" />
+      
+    
 
         <ScrollView>
 
@@ -25,12 +27,12 @@
                 <HorizontalStackLayout Spacing="10">
 
                     <Frame
-                        WidthRequest="60"
-                        HeightRequest="60"
-                        CornerRadius="15"
-                        Padding="0"
-                        HasShadow="False"
-                        BackgroundColor="#40000000">
+                        WidthRequest="100"
+                        HeightRequest="100"
+                        CornerRadius="60"
+                        Padding="-20"
+                        HasShadow="false"
+                        BackgroundColor="AliceBlue">
 
                         <Image Source="logo.png"/>
                     </Frame>
@@ -38,11 +40,15 @@
                     <VerticalStackLayout VerticalOptions="Center">
 
                         <Label
-                            Text="CRAdventure"
-                            FontSize="28"
-                            FontAttributes="Bold"
-                            TextColor="#054205"/>
-
+                         Text="CR"
+                          FontFamily="Kaushan"
+                          FontSize="40"
+                          TextColor="#008000"/>
+                        <Label
+                          Text="Adventure"
+                           FontFamily="Kaushan"
+                            FontSize="40"
+                            TextColor="#215B22"/>
 
                     </VerticalStackLayout>
 
@@ -52,21 +58,30 @@
                 <VerticalStackLayout Margin="0,30,0,0">
 
                     <Label
-                        Text="Costa Rica"
-                        FontSize="42"
-                        FontAttributes="Bold"
-                        TextColor="#EBEE3F"/>
+    Text="Costa Rica"
+    FontFamily="Kaushan"
+    FontSize="45"
+    TextColor="#143E1E"/>
 
                     <Label
-                        FontSize="42"
-                        FontAttributes="Bold">
+                        FontFamily="Kaushan"
+                        FontSize="50">
+                        
 
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Redescubre nuestro pais "
-                                      TextColor="#054205"/>
+                            <Span Text="Redescubre&#10;"
+                                   FontFamily="Kaushan"
+                                TextColor="#143E1E"/>
 
-                            </FormattedString>
+
+
+                            <Span
+                Text="nuestro país"
+                                 FontFamily="Kaushan"
+                TextColor="#143E1E"/>
+
+                        </FormattedString>
                         </Label.FormattedText>
                     </Label>
 
@@ -88,17 +103,18 @@
                     <VerticalStackLayout Spacing="20">
 
                         <Label
-                            Text="Bienvenido de nuevo"
-                            HorizontalOptions="Center"
-                            FontSize="32"
-                            FontAttributes="Bold"
-                            TextColor="White"/>
+    Text="Bienvenido de nuevo"
+    HorizontalOptions="Center"
+    FontFamily="Kaushan"
+    FontSize="30"
+    TextColor="White"/>
 
                         <Label
-                            Text="Inicia sesión para continuar tu aventura"
-                            HorizontalOptions="Center"
-                            FontSize="14"
-                            TextColor="#CCCCCC"/>
+    Text="Inicia sesión para continuar tu aventura"
+    FontSize="18"
+    HorizontalOptions="Center"
+                             FontFamily="Kaushan"
+    TextColor="#EAEAEA"/>
 
                         <!-- Email -->
                         <Frame
@@ -133,14 +149,13 @@
 
                         <!-- Botón Login -->
                         <Button
-                            Text="Iniciar sesión"
-                            HeightRequest="55"
-                            CornerRadius="18"
-                            BackgroundColor="#8BC34A"
-                            TextColor="White"
-                            FontAttributes="Bold"
-                            FontSize="18"
-                            Clicked="Login_Clicked"/>
+    Text="Iniciar viaje""
+    FontFamily="Kaushan"
+    FontSize="24"
+    BackgroundColor="#93C94A"
+    TextColor="White"
+    HeightRequest="65"
+    CornerRadius="22"/>
 
                         <Grid ColumnDefinitions="*,Auto,*">
 

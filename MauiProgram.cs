@@ -14,6 +14,9 @@ namespace CRadventure
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+
+                    // Fuente personalizada
+                    fonts.AddFont("KaushanScript-Regular.ttf", "Kaushan");
                 });
 
 #if DEBUG

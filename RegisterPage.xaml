@@ -3,26 +3,177 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CRadventure.RegisterPage"
              Title="RegisterPage">
-    <ScrollView>
+
+    
+    <Grid>
+
+        <!-- Imagen de fondo -->
+        <Image
+        Source="b1.png"
+        Aspect="AspectFill"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"/>
+
+        <!-- Capa oscura para mejorar la lectura -->
+
+
+
+        <ScrollView>
+
+
+    
+   
+
+
         <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
 
-            <Label Text="Crear cuenta" FontSize="24" HorizontalOptions="Center" />
 
-            <Entry x:Name="txtNombre" Placeholder="Nombre" />
-            <Entry x:Name="txtApellidos" Placeholder="Apellidos" />
-            <Entry x:Name="txtCorreo" Placeholder="Correo electrónico" Keyboard="Email" />
-            <Entry x:Name="txtTelefono" Placeholder="Teléfono" Keyboard="Telephone" />
-            <Entry x:Name="txtPassword" Placeholder="Contraseña" IsPassword="True" />
-            <Entry x:Name="txtConfirmPassword" Placeholder="Confirmar contraseña" IsPassword="True" />
 
-            <HorizontalStackLayout Spacing="10">
-                <Label Text="¿Es extranjero?" VerticalOptions="Center" />
-                <Switch x:Name="switchExtranjero" />
-            </HorizontalStackLayout>
 
-            <Button Text="Registrarme" Clicked="Registrar_Clicked" />
-            <Button Text="Volver" Clicked="Volver_Clicked" BackgroundColor="Transparent" TextColor="Gray" />
 
-        </VerticalStackLayout>
+                <Label
+    Text="Crear Cuenta"
+    FontFamily="Kaushan"
+    FontSize="65"
+    HorizontalOptions="Center"
+    TextColor="#215B22"/>
+
+                <!-- Nombre -->
+                <Frame
+    CornerRadius="15"
+    Padding="15,8"
+    BackgroundColor="#803F5E2A"
+    BorderColor="#A0D6E8C3"
+    HasShadow="False">
+
+                    <Entry
+        x:Name="txtNombre"
+        Placeholder="Nombre"
+        PlaceholderColor="#F1F8E9"
+        TextColor="White"/>
+                </Frame>
+
+                <!-- Apellidos -->
+                <Frame
+    CornerRadius="15"
+    Padding="15,8"
+    BackgroundColor="#803F5E2A"
+    BorderColor="#A0D6E8C3"
+    HasShadow="False">
+
+                    <Entry
+        x:Name="txtApellidos"
+        Placeholder="Apellidos"
+        PlaceholderColor="#F1F8E9"
+        TextColor="White"/>
+                </Frame>
+
+                <!-- Correo -->
+                <Frame
+    CornerRadius="15"
+    Padding="15,8"
+    BackgroundColor="#803F5E2A"
+    BorderColor="#A0D6E8C3"
+    HasShadow="False">
+
+                    <Entry
+        x:Name="txtCorreo"
+        Placeholder="Correo electrónico"
+        Keyboard="Email"
+        PlaceholderColor="#F1F8E9"
+        TextColor="White"/>
+                </Frame>
+
+                <!-- Teléfono -->
+                <Frame
+    CornerRadius="15"
+    Padding="15,8"
+    BackgroundColor="#803F5E2A"
+    BorderColor="#A0D6E8C3"
+    HasShadow="False">
+
+                    <Entry
+        x:Name="txtTelefono"
+        Placeholder="Teléfono"
+        Keyboard="Telephone"
+        PlaceholderColor="#F1F8E9"
+        TextColor="White"/>
+                </Frame>
+
+                <!-- Contraseña -->
+                <Frame
+    CornerRadius="15"
+    Padding="15,8"
+    BackgroundColor="#803F5E2A"
+    BorderColor="#A0D6E8C3"
+    HasShadow="False">
+
+                    <Entry
+        x:Name="txtPassword"
+        Placeholder="Contraseña"
+        IsPassword="True"
+        PlaceholderColor="#F1F8E9"
+        TextColor="White"/>
+                </Frame>
+
+                <!-- Confirmar contraseña -->
+                <Frame
+    CornerRadius="15"
+    Padding="15,8"
+    BackgroundColor="#803F5E2A"
+    BorderColor="#A0D6E8C3"
+    HasShadow="False">
+
+                    <Entry
+        x:Name="txtConfirmPassword"
+        Placeholder="Confirmar contraseña"
+        IsPassword="True"
+        PlaceholderColor="#F1F8E9"
+        TextColor="White"/>
+                </Frame>
+
+                <!-- ¿Es extranjero? -->
+                <HorizontalStackLayout
+    Margin="0,10"
+    Spacing="15"
+    HorizontalOptions="Center">
+
+                    <Label
+        Text="¿Es extranjero?"
+        FontFamily="Kaushan"
+        FontSize="22"
+        TextColor="White"
+        VerticalOptions="Center"/>
+
+                    <Switch
+        x:Name="switchExtranjero"
+        OnColor="#8BC34A"
+        ThumbColor="White"/>
+                </HorizontalStackLayout>
+
+                <Button
+    Text="Iniciar viaje"
+    FontFamily="Kaushan"
+    FontSize="40"
+    HeightRequest="80"
+    CornerRadius="999"
+    BackgroundColor="#8BC34A"
+    TextColor="White"/>
+
+
+                <Button
+    Text="Volver"
+    FontFamily="Kaushan"
+    FontSize="22"
+    HeightRequest="60"
+    CornerRadius="20"
+    BackgroundColor="Transparent"
+    BorderColor="White"
+    BorderWidth="1"
+    TextColor="White"/>
+            
+            
+            </VerticalStackLayout>
     </ScrollView>
+        </Grid>
 </ContentPage>
