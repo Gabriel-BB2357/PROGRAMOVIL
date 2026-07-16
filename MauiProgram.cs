@@ -9,15 +9,17 @@ namespace CRadventure
             var builder = MauiApp.CreateBuilder();
 
             builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                 .UseMauiApp<App>()
+                 .ConfigureFonts(fonts =>
+                 {
+                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 
-                    // Fuente personalizada
-                    fonts.AddFont("KaushanScript-Regular.ttf", "Kaushan");
-                });
+                     // Quitamos o dejamos Kaushan si la quieres conservar, 
+                     // y registramos las dos variantes de Montserrat:
+                     fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
+                     fonts.AddFont("Montserrat-Regular.ttf", "MontserratRegular");
+                 });
 
 #if DEBUG
             builder.Logging.AddDebug();

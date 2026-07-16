@@ -4,7 +4,7 @@ using Plugin.Firebase.Firestore;
 namespace CRadventure;
 using CRadventure.Models;
 using CRadventure.Services;
-using Firebase.Firestore.Auth;
+//using Firebase.Firestore.Auth;
 
 public partial class MainPage : ContentPage
 {
