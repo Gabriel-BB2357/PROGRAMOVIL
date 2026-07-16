@@ -59,7 +59,7 @@ public partial class MainPage : ContentPage
             {
                 // Navegar según el rol
                 if (usuario.Rol == "admin" || usuario.Rol == "guia" || usuario.Rol == "cliente")
-                    await Navigation.PushAsync(new DashboardPage(user.Email));
+                    await Navigation.PushAsync(new DashboardPage(usuario));
                 else
                     await DisplayAlert("Error", "Rol no reconocido", "OK");
             }
