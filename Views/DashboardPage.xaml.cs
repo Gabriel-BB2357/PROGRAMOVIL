@@ -23,48 +23,31 @@ public partial class DashboardPage : ContentPage
     {
         try
         {
+            // 1. Obtenemos la lista de tours desde el servicio
             var listaTours = await _tourService.ObtenerTodosLosToursAsync();
 
             foreach (var tour in listaTours)
             {
+                // Lógica de precios
                 tour.AplicarTarifa(_usuarioActual.EsExtranjero);
 
-                if (tour.IdiomasIds != null && tour.IdiomasIds.Count > 0)
+                // Se valida que Idiomas no esté vacío
+                if (!string.IsNullOrEmpty(tour.Idiomas))
                 {
-                    try
-                    {
-                        var nombresIdiomas = new List<string>();
-
-                        foreach (var idiomaId in tour.IdiomasIds)
-                        {
-                            var snapshot = await CrossFirebaseFirestore.Current
-                                .GetCollection("idiomas")
-                                .GetDocument(idiomaId)
-                                .GetDocumentSnapshotAsync<IdiomaModel>();
-
-                            if (snapshot != null && snapshot.Data != null)
-                            {
-                                nombresIdiomas.Add(snapshot.Data.Nombre);
-                            }
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine($"Error cargando idioma: {ex.Message}");
-                    }
+                    tour.IdiomasTexto = tour.Idiomas;
                 }
                 else
                 {
                     tour.IdiomasTexto = "Sin idioma";
                 }
-            } 
+            }
 
-            this.cvTours.ItemsSource = listaTours; 
+            // 4. Asignamos la lista a la vista después de haber procesado los idiomas
+            this.cvTours.ItemsSource = listaTours;
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", ex.Message, "OK");
+            await DisplayAlert("Error", $"No se pudo cargar la información: {ex.Message}", "OK");
         }
     }
 

@@ -33,6 +33,9 @@ namespace CRadventure.Models
         [FirestoreProperty("duracionMinutos")]
         public int DuracionMinutos { get; set; }
 
+        [FirestoreProperty("idiomas")]
+        public string Idiomas { get; set; } = string.Empty;
+
         public string PrecioVisual { get; set; } = string.Empty;
 
         public void AplicarTarifa(bool esExtranjero)
@@ -43,10 +46,7 @@ namespace CRadventure.Models
                 : $"₡{precioFinal:N0} CRC";
         }
 
-        [FirestoreProperty("idiomas_ids")]
-        public List<string> IdiomasIds { get; set; } = new List<string>();
-
-        public string IdiomasTexto { get; set; } = "Cargando...";
+        public string IdiomasTexto { get; set; } = string.Empty;
         public double Calificacion { get; set; } = 4.5; // Valor estático PRUEBA
 
     }
