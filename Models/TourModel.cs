@@ -13,11 +13,9 @@ namespace CRadventure.Models
         [FirestoreDocumentId]
         public string Id { get; set; } = string.Empty;
 
-        // Cambiado de "nombre_lugar" a "titulo"
         [FirestoreProperty("titulo")]
         public string NombreLugar { get; set; } = string.Empty;
 
-        // Cambiado de "descripcion_corta" a "descripcionCorta"
         [FirestoreProperty("descripcionCorta")]
         public string DescripcionCorta { get; set; } = string.Empty;
 

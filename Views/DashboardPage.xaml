@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CRadventure.DashboardPage"
-             BackgroundColor="#0A140E"
              Title="Explora">
 
     <Grid>
+        <Image Source="dashboard.png" 
+               Aspect="AspectFill" 
+               HorizontalOptions="Fill" 
+               VerticalOptions="Fill"/>
+
+        <BoxView BackgroundColor="#CC0A140E" />
+
         <CollectionView x:Name="cvTours" 
                         Margin="15"
                         VerticalOptions="Fill"
@@ -38,7 +44,7 @@
                             </Grid>
 
                             <VerticalStackLayout Padding="15" Spacing="6">
-                                <Label Text="{Binding Titulo}" 
+                                <Label Text="{Binding NombreLugar}" 
                                        TextColor="White" 
                                        FontSize="18" 
                                        FontAttributes="Bold"/>
@@ -75,7 +81,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <ImageButton Source="add_circle.png" 
+        <ImageButton Source="editar.png" 
                      WidthRequest="70" 
                      HeightRequest="70"
                      HorizontalOptions="End" 

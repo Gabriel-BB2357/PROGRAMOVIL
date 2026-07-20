@@ -23,15 +23,15 @@ public partial class DashboardPage : ContentPage
     {
         try
         {
-            // 1. Obtenemos la lista de tours desde el servicio
+            // Se obtiene la lista de tours desde TourService
             var listaTours = await _tourService.ObtenerTodosLosToursAsync();
 
             foreach (var tour in listaTours)
             {
-                // Lógica de precios
+                // Logica de los precios
                 tour.AplicarTarifa(_usuarioActual.EsExtranjero);
 
-                // Se valida que Idiomas no esté vacío
+                // Valida que idiomas no este vacio
                 if (!string.IsNullOrEmpty(tour.Idiomas))
                 {
                     tour.IdiomasTexto = tour.Idiomas;
@@ -42,11 +42,12 @@ public partial class DashboardPage : ContentPage
                 }
             }
 
-            // 4. Asignamos la lista a la vista después de haber procesado los idiomas
+            // Se asigna la lista a la vista despues de haber procesado los idiomas
             this.cvTours.ItemsSource = listaTours;
         }
         catch (Exception ex)
         {
+            // Error si no carga la informacion
             await DisplayAlert("Error", $"No se pudo cargar la información: {ex.Message}", "OK");
         }
     }

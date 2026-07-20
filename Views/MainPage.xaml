@@ -106,7 +106,6 @@
                                 VerticalTextAlignment="Center"/>
                         </Border>
 
-                        <!-- Contraseña modificada para incluir el botón de visibilidad -->
                         <Border
                             Padding="12,0"
                             HeightRequest="42"
@@ -139,7 +138,6 @@
                             </Grid>
                         </Border>
 
-                        <!-- Botón modificado para incluir el ActivityIndicator -->
                         <Grid>
                             <Button
                                 x:Name="btnIniciar"
